@@ -24,10 +24,19 @@ import { ConfigData } from '@/data/config'
   align-items: center;
 }
 
+.say-hello {
+  min-width: 0;
+}
+
+.say-hello h1 {
+  font-size: clamp(1.35rem, 5vw, 2rem);
+}
+
 /* 头像样式 */
 .avatar-img {
-  width: 9rem;
-  height: 9rem;
+  width: clamp(4.5rem, 22vw, 9rem);
+  height: clamp(4.5rem, 22vw, 9rem);
+  flex-shrink: 0;
   border-radius: 50%;
   margin-right: 1rem;
   position: relative;
@@ -37,6 +46,7 @@ import { ConfigData } from '@/data/config'
 .tag-line {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 /* tag 样式 */

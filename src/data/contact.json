@@ -1,0 +1,28 @@
+{
+  "linkBtn": [
+    {
+      "icon": "fa7-solid:blog",
+      "text": "博客",
+      "color": "#ffb3b3",
+      "url": "https://blog.rochsen.cn"
+    },
+    {
+      "icon": "line-md:email",
+      "text": "简历",
+      "color": "#FDB34F",
+      "url": "https://intro.rochsen.cn"
+    },
+    {
+      "icon": "mdi:github",
+      "text": "Github",
+      "color": "#2b2b2b",
+      "url": "https://github.com/Rochsen"
+    },
+    {
+      "icon": "mingcute:bilibili-line",
+      "text": "哔哩哔哩",
+      "color": "#0BA7D4",
+      "url": "https://space.bilibili.com/361524948"
+    }
+  ]
+}

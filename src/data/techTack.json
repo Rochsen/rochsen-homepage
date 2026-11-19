@@ -1,0 +1,48 @@
+{
+  "techStack": [
+    {
+      "icon": "vscode-icons:file-type-linux",
+      "name": "Linux"
+    },
+    {
+      "icon": "material-icon-theme:python",
+      "name": "Python"
+    },
+    {
+      "icon": "vscode-icons:file-type-pandas",
+      "name": "Pandas"
+    },
+    {
+      "icon": "vscode-icons:file-type-pytorch",
+      "name": "Pytorch"
+    },
+    {
+      "icon": "vscode-icons:file-type-fastapi",
+      "name": "FastAPI"
+    },
+    {
+      "icon": "material-icon-theme:vue",
+      "name": "Vue"
+    },
+    {
+      "icon": "vscode-icons:file-type-html",
+      "name": "HTML"
+    },
+    {
+      "icon": "devicon:css3",
+      "name": "CSS"
+    },
+    {
+      "icon": "vscode-icons:file-type-typescript-official",
+      "name": "TypeScript"
+    },
+    {
+      "icon": "catppuccin:markdown-mdx",
+      "name": "Markdown"
+    },
+    {
+      "icon": "vscode-icons:file-type-docker",
+      "name": "Docker"
+    }
+  ]
+}

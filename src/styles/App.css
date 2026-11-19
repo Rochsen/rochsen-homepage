@@ -5,6 +5,14 @@ main {
   padding: 5rem 0 3rem;
 }
 
+@media (max-width: 768px) {
+  main {
+    width: calc(100% - 1.5rem);
+    padding-top: 4.5rem;
+    padding-bottom: 6rem;
+  }
+}
+
 body {
   background: var(--background);
   padding: 0;

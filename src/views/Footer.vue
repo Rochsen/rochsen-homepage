@@ -5,19 +5,25 @@
         <img class="registration-img" src="/registration.png" alt="" />
       </span>
       <span class="footer-line-text">
-        <a href="{{ConfigData.footer.beian_url}}" rel="noreferrer" target="_blank">{{
-          ConfigData.footer.beian
-        }}</a>
-        <a href="{{ConfigData.footer.icp_url}}" rel="noopener" target="_blank">{{
-          ConfigData.footer.icp
-        }}</a>
+        <a href="{{ BeianUrl }}" rel="noreferrer" target="_blank">{{ Beian }}</a>
+        <a href="{{ IcpUrl }}" rel="noopener" target="_blank">{{ Icp }}</a>
       </span>
     </span>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { ConfigData } from '@/data/config'
+
+// 页脚数据
+const FooterData = ConfigData.footer
+
+// 备案信息
+const BeianUrl = computed(() => FooterData.beian_url)
+const IcpUrl = computed(() => FooterData.icp_url)
+const Beian = computed(() => FooterData.beian)
+const Icp = computed(() => FooterData.icp)
 </script>
 
 <style scoped>
@@ -53,6 +59,11 @@ a {
   display: inline-flex;
   align-items: flex-end;
   vertical-align: bottom;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .registration-img-container {
@@ -74,5 +85,13 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
+}
+
+/* 窄屏备案与 ICP 改为上下排列，避免文字被挤断 */
+@media (max-width: 768px) {
+  .footer-line-text {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
 </style>
