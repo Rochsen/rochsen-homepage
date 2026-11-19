@@ -25,7 +25,7 @@ const typewriterText = ConfigData.typewriter
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -34,9 +34,14 @@ const typewriterText = ConfigData.typewriter
   border-radius: 10px;
   padding: 10px;
 
+  /* 引号保持原尺寸，文字在中间换行，避免引号被挤到上一行变成黑点 */
+  :deep(svg) {
+    flex-shrink: 0;
+  }
+
   :deep(.typewriter) {
     min-width: 0;
-    max-width: 100%;
+    max-width: calc(100% - 3rem);
   }
 }
 </style>
