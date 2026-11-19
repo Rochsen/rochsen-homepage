@@ -1,9 +1,9 @@
 <template>
   <div class="typewriter-block">
     <Icon icon="carbon:quotes" width="14" height="14" />
-    <span style="margin-right: 10px;"></span>
+    <span style="margin-right: 10px"></span>
     <Typewriter :text="typewriterText" />
-    <span style="margin-left: 10px;"></span>
+    <span style="margin-left: 10px"></span>
     <Icon icon="ph:quotes-fill" width="14" height="14" />
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { ConfigData as siteConfig } from '@/data/config'
-import Typewriter from '@/tools/typewriter.vue'
+import Typewriter from '@/tools/Typewriter.vue'
 import { Icon } from '@iconify/vue'
 
 // 打字机文本数组

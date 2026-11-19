@@ -5,13 +5,14 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   text: {
-    type: [String, Array],
-    default: () => [],
+    type: [String, Array] as PropType<string | string[]>,
+    default: () => [] as string[],
   },
   typingSpeed: {
     type: Number,
@@ -33,79 +34,78 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
-});
+})
 
-const displayedText = ref("");
-const showCursor = ref(true);
-const currentIndex = ref(0);
-const currentTextIndex = ref(0);
-const isDeleting = ref(false);
-let timeoutId = null;
-let intervalId = null;
+const displayedText = ref('')
+const showCursor = ref(true)
+const currentIndex = ref(0)
+const currentTextIndex = ref(0)
+const isDeleting = ref(false)
+let timeoutId: ReturnType<typeof setTimeout> | null = null
+let intervalId: ReturnType<typeof setInterval> | null = null
 
 const getCurrentText = () => {
   if (Array.isArray(props.text)) {
-    return props.text[currentTextIndex.value] || "";
+    return props.text[currentTextIndex.value] || ''
   }
-  return props.text || "";
-};
+  return props.text || ''
+}
 
 const getTextArrayLength = () => {
   if (Array.isArray(props.text)) {
-    return props.text.length;
+    return props.text.length
   }
-  return 0;
-};
+  return 0
+}
 
 const typeText = () => {
-  const textToType = getCurrentText();
+  const textToType = getCurrentText()
 
   if (!isDeleting.value) {
     if (currentIndex.value < textToType.length) {
-      displayedText.value += textToType.charAt(currentIndex.value);
-      currentIndex.value++;
-      timeoutId = setTimeout(typeText, props.typingSpeed);
+      displayedText.value += textToType.charAt(currentIndex.value)
+      currentIndex.value++
+      timeoutId = setTimeout(typeText, props.typingSpeed)
     } else {
       if (props.loop || currentTextIndex.value < getTextArrayLength() - 1) {
         timeoutId = setTimeout(() => {
-          isDeleting.value = true;
-          typeText();
-        }, props.delayAfterTyping);
+          isDeleting.value = true
+          typeText()
+        }, props.delayAfterTyping)
       }
     }
   } else {
     if (currentIndex.value > 0) {
-      displayedText.value = textToType.substring(0, currentIndex.value - 1);
-      currentIndex.value--;
-      timeoutId = setTimeout(typeText, props.deletingSpeed);
+      displayedText.value = textToType.substring(0, currentIndex.value - 1)
+      currentIndex.value--
+      timeoutId = setTimeout(typeText, props.deletingSpeed)
     } else {
-      isDeleting.value = false;
+      isDeleting.value = false
       if (props.loop || currentTextIndex.value < getTextArrayLength() - 1) {
         if (Array.isArray(props.text) && props.text.length > 0) {
-          currentTextIndex.value =
-            (currentTextIndex.value + 1) % props.text.length;
+          currentTextIndex.value = (currentTextIndex.value + 1) % props.text.length
         }
 
         if (props.loop || currentTextIndex.value < getTextArrayLength()) {
-          timeoutId = setTimeout(typeText, props.delayAfterDeleting);
+          timeoutId = setTimeout(typeText, props.delayAfterDeleting)
         }
       }
     }
   }
-};
+}
 
 onMounted(() => {
-  typeText();
+  typeText()
 
   intervalId = setInterval(() => {
-    showCursor.value = !showCursor.value;
-  }, 500);
-});
+    showCursor.value = !showCursor.value
+  }, 500)
+})
 
 onUnmounted(() => {
-  if (timeoutId) clearTimeout(timeoutId);
-  if (intervalId) clearInterval(intervalId);
-});
+  if (timeoutId) clearTimeout(timeoutId)
+  if (intervalId) clearInterval(intervalId)
+})
 </script>
 
 <style scoped>
