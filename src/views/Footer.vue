@@ -90,11 +90,36 @@ a {
   gap: 5px;
 }
 
-/* 窄屏备案与 ICP 改为上下排列，避免文字被挤断 */
+/* 窄屏备案与 ICP 上下排列，徽标只跟在公网安备那一行 */
 @media (max-width: 768px) {
+  .footer-line {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.25rem;
+    row-gap: 0.15rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .registration-img-container {
+    grid-row: 1;
+    grid-column: 1;
+    margin-right: 0;
+  }
+
   .footer-line-text {
-    grid-template-columns: 1fr;
-    justify-items: center;
+    display: contents;
+  }
+
+  .footer-line-text a:first-child {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .footer-line-text a:last-child {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }
 </style>
