@@ -22,6 +22,7 @@ import { ConfigData } from '@/data/config'
 .header {
   display: flex;
   align-items: center;
+  color: var(--text-color);
 }
 
 .say-hello {

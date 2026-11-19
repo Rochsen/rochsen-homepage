@@ -1,28 +1,28 @@
 {
   "todoList": [
     {
-      "item": "找到工作",
-      "status": "进行中"
+      "detail": "找到工作",
+      "status": false
     },
     {
-      "item": "学习AI开发",
-      "status": "进行中"
+      "detail": "学习AI开发",
+      "status": false
     },
     {
-      "item": "拿到C1驾照",
-      "status": "已完成"
+      "detail": "拿到C1驾照",
+      "status": true
     },
     {
-      "item": "搭建个人博客项目",
-      "status": "已完成"
+      "detail": "搭建个人博客项目",
+      "status": true
     },
     {
-      "item": "搭建个人线上简历",
-      "status": "已完成"
+      "detail": "搭建个人线上简历",
+      "status": true
     },
     {
-      "item": "完成一个域名备案",
-      "status": "已完成"
+      "detail": "完成一个域名备案",
+      "status": true
     }
   ]
 }
