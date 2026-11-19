@@ -5,8 +5,8 @@
         <img class="registration-img" src="/registration.png" alt="" />
       </span>
       <span class="footer-line-text">
-        <a href="{{ BeianUrl }}" rel="noreferrer" target="_blank">{{ Beian }}</a>
-        <a href="{{ IcpUrl }}" rel="noopener" target="_blank">{{ Icp }}</a>
+        <a :href="`${BeianUrl}`" rel="noreferrer" target="_blank">{{ Beian }}</a>
+        <a :href="`${IcpUrl}`" rel="noopener" target="_blank">{{ Icp }}</a>
       </span>
     </span>
   </div>
