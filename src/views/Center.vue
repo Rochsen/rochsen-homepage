@@ -62,7 +62,7 @@ import ContactBlock from '@/components/contactBlock.vue'
 .left-part {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: .8fr 1fr;
+  grid-template-rows: 0.8fr 1fr;
   gap: 1rem;
 }
 
@@ -70,8 +70,8 @@ import ContactBlock from '@/components/contactBlock.vue'
 .right-part {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: 3fr .5fr 1.5fr;
-  gap: 1rem;
+  grid-template-rows: 3fr 0.5fr 1.5fr;
+  gap: 2rem;
 }
 
 /* 卡片 */

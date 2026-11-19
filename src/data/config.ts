@@ -22,6 +22,9 @@ export const ConfigData = {
     age: age.value,
     location: '广东省',
   },
+  // MBTI
+  mbti: 'ISFP',
+  mbti_cn: '探险家型人格',
   // 角色
   character: ['待业者', '编程爱好者', 'AI入门者'],
   // 技术栈

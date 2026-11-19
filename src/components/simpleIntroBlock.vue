@@ -1,9 +1,20 @@
 <template>
   <div class="Intro-container">
-    <div class="say-hi-block">niaho</div>
-
-    <div class="tech-stack-block">
-      <!-- <h2>我的技术栈是</h2> -->
+    <p>你好鸭，很高兴认识你👋</p>
+    <p>
+      我叫
+      <b>{{ ConfigData.name }}</b>
+      （ {{ ConfigData.mbti }}：{{ ConfigData.mbti_cn }} ）
+    </p>
+    <p>
+      是一名
+      <span v-for="(char, index) in ConfigData.character" :key="index">
+        <b>{{ char }}</b>
+        <span v-if="index < ConfigData.character.length - 1">、</span>
+      </span>
+    </p>
+    <h3>我的一些技术栈 👇</h3>
+    <div class="tech-stack-items">
       <div v-for="item in TechStackList" :key="item.name" class="tech-stack-item">
         <Icon :icon="item.icon" width="40" height="40" />
       </div>
@@ -21,35 +32,51 @@ const TechStackList = ConfigData.techTack.techStack
 </script>
 
 <style lang="css" scoped>
+/* 介绍容器：各段在卡片内垂直均匀分布 */
 .Intro-container {
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-}
 
-.say-hi-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  p,
+  h3 {
+    margin: 0;
+  }
 
-.tech-stack-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: var(--background-color);
-  border-radius: 10px;
-  padding: 10px;
+  p {
+    padding-left: 1rem;
+  }
 
-  & .tech-stack-item {
-    background-color: var(--background-color);
-    border-radius: 10px;
-    padding: 10px;
+  /* 技术栈介绍标题 */
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  /* 技术栈块容器 */
+  .tech-stack-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    /* 单项技术栈 */
+    & .tech-stack-item {
+      background-color: var(--techItem-background-color);
+      border-radius: 10px;
+      border: 1px solid var(--card-border-color);
+      margin: 0 3.2px 3.2px;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 </style>
