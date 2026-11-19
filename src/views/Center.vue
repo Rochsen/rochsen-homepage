@@ -1,7 +1,7 @@
 <template>
   <div class="center">
     <div class="left-part">
-      <div class="card">
+      <div class="card card-scroll">
         <div class="card-title-line">
           <span class="card-title">今年计划 📒</span>
         </div>
@@ -62,7 +62,7 @@ import ContactBlock from '@/components/contactBlock.vue'
 .left-part {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: .8fr 1fr;
   gap: 1rem;
 }
 
@@ -101,6 +101,19 @@ import ContactBlock from '@/components/contactBlock.vue'
 
   & .card-content {
     padding: 0 1rem;
+  }
+}
+
+/* 计划卡片固定高度，清单在内容区里滚动 */
+.card-scroll {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+
+  & .card-content {
+    flex: 1;
+    min-height: 0;
   }
 }
 
