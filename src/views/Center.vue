@@ -50,7 +50,7 @@ import ContactBlock from '@/components/contactBlock.vue'
 /* 中部 */
 .center {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 1rem;
   height: 50vh;
   width: 100%;
@@ -64,6 +64,9 @@ import ContactBlock from '@/components/contactBlock.vue'
   grid-auto-flow: column;
   grid-template-rows: 0.8fr 1fr;
   gap: 1rem;
+  height: 100%;
+  min-width: 0;
+  align-content: stretch;
 }
 
 /* 右半边 */
@@ -72,6 +75,9 @@ import ContactBlock from '@/components/contactBlock.vue'
   grid-auto-flow: column;
   grid-template-rows: 3fr 0.5fr 1.5fr;
   gap: 2rem;
+  height: 100%;
+  min-width: 0;
+  align-content: stretch;
 }
 
 /* 卡片 */
@@ -81,6 +87,8 @@ import ContactBlock from '@/components/contactBlock.vue'
   border-radius: 1rem;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 
   & .card-title-line {
     padding: 1rem;
@@ -117,22 +125,21 @@ import ContactBlock from '@/components/contactBlock.vue'
   }
 }
 
-/* 响应式尺寸 */
-/* 窄屏改为上下排列，高度仍随视口变化 */
+/* 窄屏上下排列，左右两块仍保持同样高度 */
 @media (max-width: 768px) {
   .center {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(22rem, 50vh) minmax(22rem, 50vh);
     height: auto;
   }
 
-  .left-part {
-    height: 36vh;
-    min-height: 12rem;
+  .left-part,
+  .right-part {
+    height: 100%;
   }
 
   .right-part {
-    height: 42vh;
-    min-height: 14rem;
+    gap: 1rem;
   }
 }
 </style>

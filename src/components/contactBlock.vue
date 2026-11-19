@@ -26,9 +26,23 @@ const contact = ConfigData.contact.linkBtn
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  padding: 0.25rem;
   font-size: 1rem;
   color: #fff;
+}
+
+/* 小屏固定每行两个，避免单独剩一个按钮 */
+@media (max-width: 768px) {
+  .contact-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: stretch;
+    align-content: center;
+    gap: 0.6rem 0.75rem;
+  }
 }
 </style>

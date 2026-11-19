@@ -25,11 +25,18 @@ const typewriterText = ConfigData.typewriter
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  min-width: 0;
   background-color: var(--background-color);
   border-radius: 10px;
   padding: 10px;
+
+  :deep(.typewriter) {
+    min-width: 0;
+    max-width: 100%;
+  }
 }
 </style>

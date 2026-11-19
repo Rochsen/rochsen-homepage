@@ -25,7 +25,18 @@ const ConfigData = inject('ConfigData', siteConfig)
 .header {
   display: flex;
   align-items: center;
+  min-width: 0;
   color: var(--text-color);
+}
+
+@media (max-width: 480px) {
+  .header {
+    align-items: flex-start;
+  }
+
+  .tag {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .say-hello {

@@ -48,6 +48,7 @@ const TechStackList = ConfigData.techTack.techStack
 
   p {
     padding-left: 1rem;
+    line-height: 1.7;
   }
 
   /* 技术栈介绍标题 */
@@ -56,26 +57,48 @@ const TechStackList = ConfigData.techTack.techStack
     font-weight: bold;
     text-align: left;
     padding-left: 1rem;
+    line-height: 1.7;
   }
 
   /* 技术栈块容器 */
   .tech-stack-items {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: safe center;
+    flex-wrap: nowrap;
     margin: 0;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--card-border-color) transparent;
 
     /* 单项技术栈 */
     & .tech-stack-item {
       background-color: var(--techItem-background-color);
       border-radius: 10px;
       border: 1px solid var(--card-border-color);
-      margin: 0 3.2px 3.2px;
+      margin: 0 3.2px;
       width: 52px;
       height: 52px;
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+}
+
+/* 小屏拉开介绍行距，避免几段文字挤在一起 */
+@media (max-width: 768px) {
+  .Intro-container {
+    justify-content: space-evenly;
+    padding: 0.75rem 0.25rem;
+    gap: 0.65rem;
+
+    p,
+    h3 {
+      padding-left: 0.85rem;
+      padding-right: 0.85rem;
     }
   }
 }
