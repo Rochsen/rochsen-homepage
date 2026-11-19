@@ -70,7 +70,7 @@ import ContactBlock from '@/components/contactBlock.vue'
 .right-part {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: 3fr 1fr 1.5fr;
+  grid-template-rows: 3fr .5fr 1.5fr;
   gap: 1rem;
 }
 
