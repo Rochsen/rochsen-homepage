@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { ConfigData as siteConfig } from '@/data/config'
-import Typewriter from '@/tools/Typewriter.vue'
+import Typewriter from '@/utils/components/Typewriter.vue'
 import { Icon } from '@iconify/vue'
 
 // 打字机文本数组

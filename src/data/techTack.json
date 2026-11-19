@@ -1,7 +1,7 @@
 {
   "techStack": [
     {
-      "icon": "vscode-icons:file-type-linux",
+      "icon": "logos:linux-tux",
       "name": "Linux"
     },
     {
@@ -9,15 +9,15 @@
       "name": "Python"
     },
     {
-      "icon": "vscode-icons:file-type-pandas",
+      "icon": "logos:pandas-icon",
       "name": "Pandas"
     },
     {
-      "icon": "vscode-icons:file-type-pytorch",
+      "icon": "material-icon-theme:pytorch",
       "name": "Pytorch"
     },
     {
-      "icon": "vscode-icons:file-type-fastapi",
+      "icon": "logos:fastapi-icon",
       "name": "FastAPI"
     },
     {
