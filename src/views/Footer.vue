@@ -13,8 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { ConfigData } from '@/data/config'
+import { computed, inject } from 'vue'
+
+import { ConfigData as siteConfig } from '@/data/config'
+
+const ConfigData = inject('ConfigData', siteConfig)
 
 // 页脚数据
 const FooterData = ConfigData.footer

@@ -15,7 +15,11 @@
 </template>
 
 <script setup lang="ts">
-import { ConfigData } from '@/data/config'
+import { inject } from 'vue';
+import { ConfigData as siteConfig } from '@/data/config'
+
+const ConfigData = inject('ConfigData', siteConfig)
+
 </script>
 
 <style>
