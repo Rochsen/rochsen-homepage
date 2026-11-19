@@ -8,9 +8,10 @@
           <div class="title-icon"></div>
         </div>
         <div class="card-content">
-          <div v-for="(item in PlanList)" :key="item.item">
+          <div v-for="item in PlanList" :key="item.item" class="plan-item">
+            <div class="plan-item-status" v-if="item.status == '已完成'">✅</div>
+            <div class="plan-item-status" v-if="item.status == '进行中'">🚧</div>
             <span class="plan-item-title">{{ item.item }}</span>
-            <span class="plan-item-status">{{ item.status }}</span>
           </div>
         </div>
       </div>
@@ -79,7 +80,7 @@ const PlanList = ConfigData.plan.todoList
 
   & .card-title-line {
     padding: 1rem;
-    border-bottom: 1px solid var(--card-border-color);
+    /* border-bottom: 1px solid var(--card-border-color); */
 
     & .card-title {
       font-size: 1.2rem;
@@ -95,7 +96,19 @@ const PlanList = ConfigData.plan.todoList
   }
 
   & .card-content {
-    padding: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* 计划块 */
+.plan-item {
+  display: flex;
+  align-items: center;
+
+  & .plan-item-status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: .5rem;
   }
 }
 
