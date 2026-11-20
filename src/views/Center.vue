@@ -74,7 +74,7 @@ import ContactBlock from '@/components/contactBlock.vue'
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: 3fr 0.5fr 1.5fr;
-  gap: 2rem;
+  gap: 1rem;
   height: 100%;
   min-width: 0;
   align-content: stretch;
