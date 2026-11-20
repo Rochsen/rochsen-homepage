@@ -558,7 +558,7 @@ JSON 不允许最后一个元素后面再加逗号。`src/data/*.json` 里如果
 }
 ```
 
-4. 联系按钮不要剩一个单独掉到下一行。窄屏改成两列网格，按钮缩短，图标缩小，四个按钮正好两行。
+4. 联系按钮不要剩一个单独掉到下一行。窄屏改成两列网格。当时还把按钮缩短、图标缩小，四个按钮正好两行。这一步后来把按钮拉变形了，尺寸已改回，见第 31 节。
 
 ```css
 @media (max-width: 768px) {
@@ -706,3 +706,48 @@ if os.path.exists("./dist.zip"):
 
 shutil.make_archive("./dist", "zip", root_dir=".", base_dir="dist")
 ```
+
+### 30. 小屏先显示右半边，再显示左半边
+
+窄屏中部是一列，格子按 DOM 顺序排。`Center.vue` 里左半边写在前面，所以计划和时间会先出现，介绍在下面。宽屏仍然要左列在左、右列在右，不能改 HTML 顺序。
+
+只在 768px 以下用 `order` 调整显示顺序。数字小的排在前面。右半边设为 1，左半边设为 2。宽屏不进入这个媒体查询，两边的 `order` 都是默认的 0，仍然并排。
+
+```css
+@media (max-width: 768px) {
+  .right-part {
+    order: 1;
+  }
+
+  .left-part {
+    order: 2;
+  }
+}
+```
+
+### 31. 小屏联系按钮不要被拉变形
+
+第 23 节为了塞进两列，给按钮加了 `width: 100%`，并把高度改成 34px、字号改成 0.85rem、图标改成 20px。网格默认 `justify-items: stretch`，按钮被拉成整格宽的扁条，和原来的胶囊按钮不一样。
+
+按钮尺寸收回原来的写法：高 40px、字号 18px、圆角 16px、图标 36px，宽度跟着内容走。两列排列留着，格子改成居中，不再把按钮拉满。
+
+```css
+.linkBtn {
+  height: 40px;
+  font-size: 18px;
+  border-radius: 16px;
+  padding: 0.5rem 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .contact-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 0.35rem 0.5rem;
+  }
+}
+```
+
+`height: 40px` 没有改 `box-sizing`，上下 padding 会加在高度外面，画出来大约是 56px。这和宽屏是同一套尺寸。320px 宽时「哔哩哔哩」仍能放进右下格，不用再缩小图标。

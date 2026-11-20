@@ -40,9 +40,10 @@ const contact = ConfigData.contact.linkBtn
   .contact-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-items: stretch;
+    justify-items: center;
+    align-items: center;
     align-content: center;
-    gap: 0.6rem 0.75rem;
+    gap: 0.35rem 0.5rem;
   }
 }
 </style>

@@ -38,20 +38,4 @@ const props = defineProps({
     margin-left: 0.5rem;
   }
 }
-
-@media (max-width: 768px) {
-  .linkBtn {
-    width: 100%;
-    box-sizing: border-box;
-    height: 34px;
-    margin: 0;
-    padding: 0.25rem 0.4rem;
-    font-size: 0.85rem;
-
-    & svg {
-      width: 20px;
-      height: 20px;
-    }
-  }
-}
 </style>

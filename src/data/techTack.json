@@ -37,10 +37,6 @@
       "name": "TypeScript"
     },
     {
-      "icon": "catppuccin:markdown-mdx",
-      "name": "Markdown"
-    },
-    {
       "icon": "vscode-icons:file-type-docker",
       "name": "Docker"
     }

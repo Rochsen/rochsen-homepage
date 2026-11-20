@@ -138,8 +138,14 @@ import ContactBlock from '@/components/contactBlock.vue'
     height: 100%;
   }
 
+  /* 窄屏先看右半边，再看左半边 */
   .right-part {
+    order: 1;
     gap: 1rem;
+  }
+
+  .left-part {
+    order: 2;
   }
 }
 </style>
